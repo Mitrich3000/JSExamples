@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="base.css" type="text/css"/>
+    <title>Задание 1</title>
+    <script type="text/javascript">
+      function sum() {
+        var a = parseFloat(document.getElementById('a').value);
+        var b = parseFloat(document.getElementById('b').value);
+
+        if (isNaN(a) === true) a = 0.0;
+        if (isNaN(b) === true) b = 0.0;
+
+        var c = a + b;
+
+        document.getElementById('form2').style.display = 'block';
+        document.getElementById('result').innerHTML = c.toFixed(1);
+
+      }
+    </script>
+</head>
+
+<body>
+<div>
+    Форма ввода:
+    <form>
+        <fieldset>
+            <b>Первое число: </b><br>
+            <input type="text" id="a" value="0.1"><br>
+            <b>Второе число: </b><br>
+            <input type="text" id="b" value="0.2"><br>
+            <input style="margin-top:10px" type="button" value="Сложить" onclick="sum();"><br>
+        </fieldset>
+    </form>
+</div>
+<br>
+<div style="display: none;" id="form2">
+    <form style="border: 1px solid #888888">
+        <label>Результат:</label><br><br>
+        <label id="result"></label><br>
+        <button class="button" onclick="this.style.display='none'">ОК</button>
+    </form>
+</div>
+
+
+</body>
+</html>

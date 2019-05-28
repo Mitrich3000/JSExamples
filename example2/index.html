@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 2</title>
+    <script type="text/javascript">
+      function computation() {
+
+        let position = document.getElementById('move').value;
+        let cod = { 0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E', 5: 'F', 6: 'G', 7: 'H' };
+        let x0;
+        let i;
+        for (i = 0; i < 8; i++) {
+          if (cod[i] == position[0]) {
+            x0 = i;
+            break;
+          }
+        }
+        let y0 = parseInt(position[1]);
+        console.log(x0);
+        if (x0 === undefined || x0 < 0 || x0 > 7 || y0 === undefined || y0 < 1 || y0 > 8) {
+          alert('Значения введены неправильно!');
+          return;
+        }
+        let horizontal = [2, 1, -1, -2, -2, -1, 1, 2];
+        let vertical = [-1, -2, -2, -1, 1, 2, 2, 1];
+        let accessibility = [];
+
+        for (i = 0; i < horizontal.length; i++) {
+          let x = x0 + horizontal[i];
+          let y = y0 + vertical[i];
+          if (x >= 0 && x <= 7 && y >= 1 && y <= 8) {
+            x = cod[x];
+            let s = x + y;
+            accessibility.push(s);
+          }
+        }
+        accessibility.sort();
+
+        document.getElementById('form2').style.display = 'block';
+        document.getElementById('result').innerHTML = accessibility;
+
+      }
+    </script>
+
+</head>
+
+<body>
+<div>
+    Форма ввода:
+    <form style="width: 200px;">
+        <fieldset>
+            <b>Исходное положение: </b><br>
+            <input type="text" id="move" maxlength="2" title="Укажите позицию коня (от A1 до H8):"><br>
+            <input style="margin-top:10px" type="button" value="Ок" onclick="computation();"><br>
+        </fieldset>
+    </form>
+</div>
+<br>
+<div style="display: none;" id="form2">
+    <form style="width:210px; border: 1px solid #888888; text-align: center">
+        <label>Возможные варианты хода:</label><br><br>
+        <label id="result"></label><br>
+        <button class="button" onclick="this.style.display='none'">ОК</button>
+    </form>
+</div>
+
+</body>
+</html>

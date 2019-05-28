@@ -1,0 +1,56 @@
+table {
+    font-family: Impact, sans-serif;
+    font-size: 20px;
+    background-color: #ffffff;
+    color: #7e7e7e;
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+td {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid;
+}
+
+/*раскраска ячеек*/
+tr:nth-child(even) td:nth-child(odd) {
+    background-color: #000000;
+}
+
+tr:nth-child(odd) td:nth-child(even) {
+    background-color: #000000;
+}
+
+tr:last-child td:nth-child(odd),
+tr:first-child td:nth-child(even) {
+    background-color: #ffffff;
+}
+
+/*раскраска цифр слева*/
+tr:nth-child(even) td:first-child {
+    background-color: #ffffff;
+}
+
+/*раскраска цифр слева*/
+tr:nth-child(odd) td:last-child {
+    background-color: #ffffff;
+}
+
+tr:nth-child(10n) td:nth-child(n) {
+    border: none;
+}
+
+tr:nth-child(n) td:nth-child(1) {
+    border: none;
+}
+
+tr:nth-child(n) td:nth-child(10) {
+    border: none;
+}
+
+tr:nth-child(10n+1) td:nth-child(n) {
+    border: none;
+}
